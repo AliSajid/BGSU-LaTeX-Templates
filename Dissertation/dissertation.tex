@@ -38,7 +38,7 @@
 
 \ifcsname directlua\endcsname
 % material for LuaLaTeX
-\usepackage{axessibility} % this package will make equations readable by screen readers
+%\usepackage{axessibility} % this package will make equations readable by screen readers
 \else
 % material for regular LaTeX
 \fi
@@ -56,13 +56,42 @@
 \captionsetup[table]{labelsep=space}
 \captionsetup[figure]{labelsep=space}
 \usepackage{epstopdf}
+\usepackage[inline]{enumitem}
 \usepackage{tocloft}   % package for table of contents
-\usepackage{times}     % Times New Roman (nimbus version)
 \usepackage{listings}  % allows program codes embedded with original forms
 \usepackage{bookmark}  % make it possible to add PDF bookmarks at will
 \usepackage{pdflscape} % make it possible to use landscape environment
 \usepackage[nottoc,notlof,notlot]{tocbibind} % keep list of figures, tables, out of the table of contents, also keep the table of contents out of the table of contents
 \usepackage[longnamesfirst]{natbib} % natbib helps you customize how references appear
+
+% Include PDF Files / Pages
+\usepackage{pdfpages}
+
+% Better tables
+\usepackage{tabularx}
+
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes} % Times-like, robust
+
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Termes Math}
+
+% 2. Verbatim control
+\usepackage{fancyvrb}
+
+% Poem Body: Forced Italic
+\DefineVerbatimEnvironment{FoundPoem}{Verbatim}{
+  formatcom={\rmfamily\itshape\onehalfspacing},
+  fontsize=\small,
+  obeytabs=true
+}
+
+% Environment for the poem title
+\DefineVerbatimEnvironment{PoemTitle}{Verbatim}{
+  formatcom={\rmfamily\itshape\onehalfspacing},
+  fontsize=\small,
+  obeytabs=true 
+}
 
 % The lines below use separate counters for each theorem, each lemma, each equation, etc.  The counters are re-set at the beginning of each chapter.
 
@@ -91,15 +120,15 @@
 \raggedright   % BGSU requires no right justification
 
 % Change the text inside each of the curly braces below ------------------------
-\title{An example dissertation}
-\author{Nate Iverson}
+\title{COMMUNICATION OF IDENTITY ACROSS FIRST, ONE AND A HALF, AND SECOND-GENERATION PAKISTANI IMMIGRANT PARENTS AND CHILDREN THROUGH RETROSPECTIVE STORYTELLING}
+\author{Saadia Farooq}
 \degree{Doctor of Philosophy}
-\date{August 2007}
-\advisor{Corneliu Hoffman}    % also known as committee chair
-\gfr{Darth Vader}     % graduate faculty representative
-\committee{Kit Chan \\ \\ Warren McGovern}  % other committee members
-\subject{Algebra} % edit this for your area! Use broad terms
-\keywords{Algebraic topology; Bayesian analysis} % be more specific here, separate keywords with semicolons
+\date{May 2026}
+\advisor{Sandra Faulkner}    % also known as committee chair
+\gfr{Carrie M. Hamady}     % graduate faculty representative
+\committee{Lisa Hanasono \\ \\ Bailey Dick }  % other committee members
+\subject{} % edit this for your area! Use broad terms
+\keywords{} % be more specific here, separate keywords with semicolons
 
 \begin{document}
 
@@ -156,8 +185,8 @@
 
 % Customize the appearance of references
 % using natbib package (you may use other bibliography types). Refer to http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
-\bibliographystyle{chicago}    %% this one looks best
-%\bibliographystyle{apalike}   %% sometimes works better than chicago, especially for 3 or more authors
+%\bibliographystyle{chicago}    %% this one looks best
+\bibliographystyle{apalike}   %% sometimes works better than chicago, especially for 3 or more authors
 \setcitestyle{authoryear, open={((},close={))}}
 % use the file reference.bib
 \bibliography{reference}  % use the file reference.bib
@@ -169,7 +198,11 @@
 \mbox{}\newpage
 \phantomsection
 \appendix
-\input{chapters/appendix}
+\input{chapters/appendixA}
 \phantomsection % this helps the links in the Table of Contents actually get you to Appendix B; use this between every appendix if you have more than two appendices.
 \input{chapters/appendixB}
+\phantomsection % this helps the links in the Table of Contents actually get you to Appendix B; use this between every appendix if you have more than two appendices.
+\input{chapters/appendixC}
+\phantomsection % this helps the links in the Table of Contents actually get you to Appendix B; use this between every appendix if you have more than two appendices.
+\input{chapters/appendixD}
 \end{document}
