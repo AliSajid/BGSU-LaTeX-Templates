@@ -27,11 +27,14 @@
 
 \ifcsname directlua\endcsname
 % material for LuaLaTeX
-\RequirePackage{pdfmanagement-testphase}
-\DeclareDocumentMetadata{pdfversion=1.7,lang=en-UK}
+%\RequirePackage{pdfmanagement-testphase}
+%\DeclareDocumentMetadata{pdfversion=1.7,lang=en-US}
+\DocumentMetadata{tagging=on, tagging-setup={activate/all}, lang=en-US, pdfversion=2.0, pdfstandard = ua-2}
 \else
 % material for regular LaTeX
 \fi
+
+
 
 % Load a number of options from BGSU.cls for the BGSU format
 \documentclass{BGSU}
@@ -60,9 +63,15 @@
 \usepackage{tocloft}   % package for table of contents
 \usepackage{listings}  % allows program codes embedded with original forms
 \usepackage{bookmark}  % make it possible to add PDF bookmarks at will
+\bookmarksetup{depth=0}
 \usepackage{pdflscape} % make it possible to use landscape environment
 \usepackage[nottoc,notlof,notlot]{tocbibind} % keep list of figures, tables, out of the table of contents, also keep the table of contents out of the table of contents
 \usepackage[longnamesfirst]{natbib} % natbib helps you customize how references appear
+
+% Chapter quotes and epigraphs
+\usepackage{epigraph}
+\setlength{\epigraphwidth}{\textwidth}
+\setlength{\epigraphrule}{0pt}
 
 % Include PDF Files / Pages
 \usepackage{pdfpages}
@@ -71,7 +80,7 @@
 \usepackage{tabularx}
 
 \usepackage{fontspec}
-\setmainfont{TeX Gyre Termes} % Times-like, robust
+\setmainfont{Times New Roman}[Scale=1.00375] % Times-like, robust
 
 \usepackage{unicode-math}
 \setmathfont{TeX Gyre Termes Math}
@@ -105,31 +114,33 @@
 \newtheorem{corollary}{Corollary}[chapter]
 \newtheorem{example}{Example}[chapter]
 
-% The following lines show how you can number theorems, lemmas, etc. using the same counter as equation numbers.  The numbering also indicates what section you are in.  This makes things easier to find in the dissertation, a great help to readers.
+% Package to set up the Urdu typing
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{urdu}
+%\newfontfamily\urdufont[Script=Arabic,Language=Urdu]{PakType Tehreer} % or Scheherazade 
 
-%\newtheorem{theorem}[equation]{Theorem}
-%\newtheorem{lemma}[equation]{Lemma}
-%\newtheorem{remark}[equation]{Remark}
-%\newtheorem{definition}[equation]{Definition}
-%\newtheorem{convention}[equation]{Convention}
-%\newtheorem{proposition}[equation]{Proposition}
-%\newtheorem{notation}[equation]{Notation}
-%\newtheorem{corollary}[equation]{Corollary}
-%\newtheorem{example}[equation]{Example}
+\newcommand{\typeurdu}[1]{
+(\texturdu{#1})
+}
+\newcommand{\justifyurdu}{\parfillskip=0pt \emergencystretch=.5\textwidth \par}
 
 \raggedright   % BGSU requires no right justification
 
 % Change the text inside each of the curly braces below ------------------------
-\title{COMMUNICATION OF IDENTITY ACROSS FIRST, ONE AND A HALF, AND SECOND-GENERATION PAKISTANI IMMIGRANT PARENTS AND CHILDREN THROUGH RETROSPECTIVE STORYTELLING}
+\title{COMMUNICATION OF IDENTITY ACROSS FIRST, ONE-AND-A-HALF, AND SECOND-GENERATION PAKISTANI IMMIGRANT PARENTS AND CHILDREN THROUGH RETROSPECTIVE STORYTELLING}
 \author{Saadia Farooq}
 \degree{Doctor of Philosophy}
-\date{May 2026}
+\date{2026}
 \advisor{Sandra Faulkner}    % also known as committee chair
 \gfr{Carrie M. Hamady}     % graduate faculty representative
-\committee{Lisa Hanasono \\ \\ Bailey Dick }  % other committee members
-\subject{} % edit this for your area! Use broad terms
-\keywords{} % be more specific here, separate keywords with semicolons
+\committee{Bailey Dick \\ \\ Lisa Hanasono}  % other committee members
+\subject{Communication} % edit this for your area! Use broad terms
+\keywords{Identity Negotiation; Retrospective Storytelling; Pakistani-American; Immigrant Family; Communication Theory of Identity (CTI); Art-based Research (ABR)} % be more specific here, separate keywords with semicolons
 
+\setlength{\cftchapindent}{0in}      % Chapter numbers start at the margin
+\setlength{\cftsecindent}{0.5in}     % Section numbers (1.1) indented 0.5in
+\setlength{\cftsubsecindent}{1.0in}  % Subsection numbers (1.1.1) indented 1.0in
 \begin{document}
 
 \frontmatter   % makes page numbers lower case roman
@@ -169,9 +180,9 @@
 \pagebreak
 
 % preface section is optional; comment out the next 3 lines if you don't want it
-\begin{preface}
-\input{frontmatter/preface}
-\end{preface}
+%\begin{preface}
+%\input{frontmatter/preface}
+%\end{preface}
 
 \mainmatter % starts over page counter and gives regular page numbers
 
@@ -181,7 +192,7 @@
 \input{chapters/chapter4}
 \input{chapters/chapter5}
 
-\backmatter
+%\backmatter
 
 % Customize the appearance of references
 % using natbib package (you may use other bibliography types). Refer to http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
@@ -196,6 +207,7 @@
 
 % appendix section: if you have more than one appendix section, you should label them as APPENDIX A, APPENDIX B, ....
 \mbox{}\newpage
+\renewcommand{\chaptername}{APPENDIX}
 \phantomsection
 \appendix
 \input{chapters/appendixA}

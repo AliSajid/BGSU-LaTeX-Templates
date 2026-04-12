@@ -287,9 +287,9 @@
   \begin{center}
  \begin{minipage}[!b]{\linewidth}
     \begin{center}
-       Copyright \copyright~\@date\\
+       \copyright~\@date\\
        \@author \\
-       All rights reserved
+       All Rights Reserved
     \end{center}
   \end{minipage}
   \end{center}
@@ -481,14 +481,22 @@
 \titleformat{\chapter}[hang]
     {\fontsize{12}{15}\centering}{\chaptertitlename\ \thechapter}{1em}{}  %\fontsize{<size>}{<line space>}
 \titlespacing{\chapter}{0pt}{-24pt}{5pt}  % chapter heading 1 inch from top; 24 works best, no idea why
+
+% Section level heading
 \titleformat{\section}
-    {\fontsize{12}{15}}{\thesection}{5pt}{}
+    {\fontsize{12}{15}\raggedright\bfseries}{\thesection}{5pt}{}
 \titlespacing{\section}{0pt}{5pt}{5pt}
+
+% Subsection level heading
 \titleformat{\subsection}
-    {\fontsize{12}{15}}{\thesubsection}{5pt}{}
+    {\fontsize{12}{15}\raggedright\bfseries}{\thesubsection}{5pt}{}
 \titlespacing{\subsection}{0pt}{5pt}{5pt}
+
+% Subsubsection level heading
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
 \titleformat{\subsubsection}
-    {\fontsize{12}{15}}{\thesubsection}{5pt}{}
+    {\fontsize{12}{15}\raggedright\bfseries}{\thesubsubsection}{5pt}{}
 \titlespacing{\subsubsection}{0pt}{5pt}{5pt}
 
 % adjust chapter headings ... not sure this does anything
